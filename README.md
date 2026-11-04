@@ -1,4 +1,6 @@
-# Plumary
+<p align="center">
+  <img src="assets/brand/plumary-logo.png" alt="Plumary" width="440">
+</p>
 
 Open-source, backend-free writing assistant. You pick the providers (Claude, OpenAI, Ollama, DeepL, LanguageTool...), your text goes only where you configured, and anyone can add a provider plugin.
 
