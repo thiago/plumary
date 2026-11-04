@@ -1,0 +1,40 @@
+{
+  "name": "plumary",
+  "private": true,
+  "packageManager": "pnpm@12.16.1",
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "check": "node apps/cli/dist/index.js"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.12.4",
+    "@types/node": "^24.0.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  },
+  "description": "Plumary - an open-source, provider-agnostic writing assistant. Grammar, spelling, translation, tone and rephrasing, with the LLM you choose. No backend.",
+  "keywords": [
+    "grammar",
+    "spelling",
+    "writing-assistant",
+    "grammarly-alternative",
+    "llm",
+    "proofreading",
+    "translation",
+    "tauri",
+    "open-source"
+  ],
+  "license": "MIT",
+  "author": "Thiago Rodrigues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiago/plumary.git"
+  },
+  "homepage": "https://github.com/thiago/plumary#readme",
+  "bugs": {
+    "url": "https://github.com/thiago/plumary/issues"
+  }
+}

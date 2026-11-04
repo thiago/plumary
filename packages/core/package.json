@@ -1,0 +1,42 @@
+{
+  "name": "@plumary/core",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "description": "Headless engine and plugin contract for Plumary, the open-source writing assistant.",
+  "keywords": [
+    "grammar",
+    "spelling",
+    "writing-assistant",
+    "grammarly-alternative",
+    "llm",
+    "proofreading",
+    "translation",
+    "tauri",
+    "open-source"
+  ],
+  "license": "MIT",
+  "author": "Thiago Rodrigues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiago/plumary.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/thiago/plumary#readme",
+  "bugs": {
+    "url": "https://github.com/thiago/plumary/issues"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "@plumary/provider-ollama",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean --platform neutral",
+    "test": "vitest run --passWithNoTests",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@plumary/core": "workspace:*"
+  },
+  "description": "Ollama (local models) provider for Plumary.",
+  "license": "MIT",
+  "author": "Thiago Rodrigues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiago/plumary.git",
+    "directory": "packages/providers/ollama"
+  },
+  "homepage": "https://github.com/thiago/plumary#readme",
+  "bugs": {
+    "url": "https://github.com/thiago/plumary/issues"
+  }
+}

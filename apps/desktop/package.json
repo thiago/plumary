@@ -1,0 +1,40 @@
+{
+  "name": "@plumary/desktop",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "tauri dev",
+    "build": "tsc --noEmit && vite build",
+    "tauri": "tauri",
+    "test": "vitest run --passWithNoTests",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@plumary/core": "workspace:*",
+    "@plumary/provider-anthropic": "workspace:*",
+    "@plumary/provider-ollama": "workspace:*",
+    "@tauri-apps/api": "^2.9.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.12.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "vite": "^7.0.0"
+  },
+  "description": "Plumary desktop app (macOS menu bar).",
+  "license": "MIT",
+  "author": "Thiago Rodrigues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiago/plumary.git",
+    "directory": "apps/desktop"
+  },
+  "homepage": "https://github.com/thiago/plumary#readme",
+  "bugs": {
+    "url": "https://github.com/thiago/plumary/issues"
+  }
+}

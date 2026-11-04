@@ -1,0 +1,31 @@
+{
+  "name": "@plumary/cli",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "plumary": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --clean --platform node --target node22",
+    "test": "vitest run --passWithNoTests",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@plumary/core": "workspace:*",
+    "@plumary/provider-anthropic": "workspace:*",
+    "@plumary/provider-ollama": "workspace:*"
+  },
+  "description": "Command-line smoke-test for Plumary.",
+  "license": "MIT",
+  "author": "Thiago Rodrigues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiago/plumary.git",
+    "directory": "apps/cli"
+  },
+  "homepage": "https://github.com/thiago/plumary#readme",
+  "bugs": {
+    "url": "https://github.com/thiago/plumary/issues"
+  }
+}
