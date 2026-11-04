@@ -1,0 +1,55 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag to build and release (e.g. v0.1.0)
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build macOS DMG and publish release
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Add macOS Rust targets
+        run: rustup target add aarch64-apple-darwin x86_64-apple-darwin
+      - run: pnpm install --frozen-lockfile
+      - name: Build TypeScript packages
+        run: pnpm build
+      - name: Build, sign updater artifacts and publish release
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+        with:
+          projectPath: apps/desktop
+          tagName: ${{ github.event.inputs.tag || github.ref_name }}
+          releaseName: Plumary ${{ github.event.inputs.tag || github.ref_name }}
+          releaseDraft: false
+          prerelease: false
+          args: --target universal-apple-darwin
+          releaseBody: |
+            Plumary for macOS — universal (Apple Silicon + Intel).
+
+            ## Install
+            1. Download the `.dmg` below and drag **Plumary** to Applications.
+            2. The app is not notarized yet, so macOS warns on first launch. Open it once with
+               **right-click → Open**, or run:
+               `xattr -dr com.apple.quarantine "/Applications/Plumary.app"`
+            3. Grant **Accessibility** permission when asked — needed to read and fix text in other apps.
+            4. Open **Settings** from the menu-bar icon and paste an API key for your provider (e.g. Anthropic).
+
+            Press **⌘⇧G** in any text field to check it. Future versions update in-app from **Settings → Updates**.

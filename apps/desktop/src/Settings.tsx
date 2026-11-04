@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { secretKey, type Capability, type Settings as CoreSettings } from '@plumary/core'
 import { engine, providers } from './engine'
 import { keychainSecretStore } from './host/tauri-stores'
+import { Updates } from './Updates'
 
 const CAPABILITIES: Capability[] = ['grammar', 'spell', 'translate', 'tone', 'rephrase']
 
@@ -54,6 +55,8 @@ export function Settings() {
           </p>
         )}
       </section>
+
+      <Updates />
 
       <section>
         <h2>Who handles what</h2>
